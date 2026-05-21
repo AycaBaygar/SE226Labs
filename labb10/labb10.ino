@@ -1,9 +1,9 @@
 #include <LiquidCrystal.h>
 
-// LCD
+
 LiquidCrystal lcd(36, 37, 26, 27, 28, 29);
 
-// 7 Segment Pins
+
 int aPin = 22;
 int bPin = 23;
 int cPin = 24;
@@ -12,7 +12,7 @@ int ePin = 26;
 int fPin = 27;
 int gPin = 28;
 
-// Digit Pins
+
 int gnd1 = 33;
 int gnd2 = 34;
 int gnd3 = 35;
@@ -24,7 +24,7 @@ unsigned long lastUpdate = 0;
 
 void setup() {
 
-  // Segment pins
+  
   pinMode(aPin, OUTPUT);
   pinMode(bPin, OUTPUT);
   pinMode(cPin, OUTPUT);
@@ -33,13 +33,13 @@ void setup() {
   pinMode(fPin, OUTPUT);
   pinMode(gPin, OUTPUT);
 
-  // Digit pins
+  
   pinMode(gnd1, OUTPUT);
   pinMode(gnd2, OUTPUT);
   pinMode(gnd3, OUTPUT);
   pinMode(gnd4, OUTPUT);
 
-  // LCD
+
   lcd.begin(16, 2);
 
   lcd.setCursor(0, 0);
@@ -53,13 +53,13 @@ void loop() {
   int d3 = (count / 100) % 10;
   int d4 = (count / 1000) % 10;
 
-  // multiplexing
+ 
   showDigit(gnd1, d1);
   showDigit(gnd2, d2);
   showDigit(gnd3, d3);
   showDigit(gnd4, d4);
 
-  // increase every second
+  
   if (millis() - lastUpdate >= 1000) {
 
     lastUpdate = millis();
